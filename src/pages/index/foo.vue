@@ -11,7 +11,7 @@ import Bar from './bar.vue'
 export default {
   props: {
     initialState: {
-      type: [String, Boolean],
+      type: [Boolean, String],
       default: ''
     }
   },
