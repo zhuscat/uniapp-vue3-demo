@@ -2,7 +2,6 @@
   <view>
     <view>FOO</view>
     <Bar />
-    <image src="@/assets/toys-statistics/box.png" />
   </view>
 </template>
 
@@ -10,11 +9,19 @@
 import Bar from './bar.vue'
 
 export default {
+  props: {
+    initialState: {
+      type: [String, Boolean],
+      default: ''
+    }
+  },
+
   components: {
     Bar
   },
 
   mounted() {
+    console.log('initialState', this.initialState)
     console.log('foo')
   }
 }
