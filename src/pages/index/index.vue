@@ -1,8 +1,12 @@
 <template>
   <view class="content">
-    <view>HAHA</view>
-    <Foo />
-    <image src="@/assets/toys-statistics/box.png" />
+    <Foo v-if="showFoo" :item="item" @something="doSomething" />
+    <textarea
+      :value="content"
+      @input="onInput"
+      @blur="onBlur"
+      @focus="onFocus"
+    />
   </view>
 </template>
 
@@ -12,6 +16,47 @@ import Foo from './foo.vue'
 export default {
   components: {
     Foo
+  },
+
+  data() {
+    return {
+      item: {},
+      noShowFoo: false,
+      content: ''
+    }
+  },
+
+  computed: {
+    showFoo() {
+      return this.item.showFoo
+    },
+  },
+
+  onLoad() {
+    setTimeout(() => {
+      this.item = {
+        showFoo: true
+      }
+    }, 2000)
+  },
+
+  methods: {
+    onInput(e) {
+      this.content = e.target.value
+      console.log('content content')
+    },
+
+    onBlur() {
+      console.log('blur')
+    },
+
+    onFocus() {
+      console.log('focus')
+    },
+
+    doSomething() {
+      console.log('do something')
+    }
   }
 }
 </script>

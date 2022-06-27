@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view>FOO</view>
+    <view @tap="handleTap">FOO</view>
     <Bar />
     <image src="@/assets/toys-statistics/box.png" />
   </view>
@@ -16,6 +16,12 @@ export default {
 
   mounted() {
     console.log('foo')
+  },
+
+  methods: {
+    handleTap() {
+      // this.$emit('something')
+    }
   }
 }
 </script>
